@@ -1,0 +1,506 @@
+/* Lexend Font */
+@font-face {
+    font-family: 'Lexend';
+    src: url('/fonts/Lexend-VariableFont_wght.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS from Viejo/css/custom.css */
+/* Efectos hover adicionales para submenús */
+.submenu-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.submenu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: width 0.3s ease;
+}
+
+.submenu-item:hover::before {
+    width: 100%;
+}
+
+.submenu-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+/* Animación suave para el contenido del submenú */
+.submenu-content {
+    transition: all 0.2s ease;
+    color: #000000;
+    /* Asegurar color negro para el texto */
+}
+
+.submenu-content:hover {
+    padding-left: 1.5rem;
+}
+
+/* Asegurar que todos los enlaces dentro de submenús tengan color negro */
+#dropdown a,
+#dropdown2 a,
+#dropdown3 a {
+    color: #000000;
+}
+
+#dropdown li,
+#dropdown2 li,
+#dropdown3 li {
+    color: #000000;
+}
+
+/* Efecto hover con imagen de fondo al 20% de opacidad */
+.img-hover-fade {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-hover-fade::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imgs/bg-fashion.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.img-hover-fade:hover::before {
+    opacity: 0.2;
+}
+
+.img-hover-fade>* {
+    position: relative;
+    z-index: 2;
+}
+
+.img-hover-fade img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Transiciones para animación de proceso */
+.proceso-subtitulo {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.proceso-subtitulo:not(.hidden) {
+    opacity: 1;
+    max-height: 100px;
+}
+
+.proceso-titulo {
+    transition: opacity 0.3s ease;
+}
+
+.proceso-item:hover .proceso-titulo {
+    opacity: 0.7;
+}
+
+/* Estilos modernos para el carrusel de testimonios */
+#testimonials-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.testimonials-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.testimonial-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 16px;
+    margin: 0 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.testimonial-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-slide blockquote {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #1f2937;
+    margin-bottom: 24px;
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-slide blockquote::before {
+    content: "\201C";
+    font-size: 4rem;
+    color: #d4b996;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    opacity: 0.3;
+}
+
+.testimonial-slide p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 32px;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.testimonial-rating svg {
+    width: 20px;
+    height: 20px;
+    fill: #d4b996;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.testimonial-author img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+}
+
+.testimonial-author-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.testimonial-author-info p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Botones de navegación */
+#testimonials-prev,
+#testimonials-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+#testimonials-prev:hover,
+#testimonials-next:hover {
+    background: #f8fafc;
+    transform: translateY(-50%) scale(1.05);
+}
+
+#testimonials-prev {
+    left: 16px;
+}
+
+#testimonials-next {
+    right: 16px;
+}
+
+/* Indicadores de progreso */
+.testimonial-progress {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 20;
+}
+
+.testimonial-progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.testimonial-progress-dot.active {
+    background: #d4b996;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+    .testimonial-slide {
+        padding: 32px;
+        margin: 0 8px;
+    }
+
+    .testimonial-slide blockquote {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #testimonials-carousel {
+        border-radius: 12px;
+    }
+
+    .testimonial-slide {
+        padding: 24px;
+        margin: 0 4px;
+    }
+
+    .testimonial-slide blockquote {
+        font-size: 1.125rem;
+    }
+
+    .testimonial-slide blockquote::before {
+        font-size: 3rem;
+        left: -15px;
+        top: -15px;
+    }
+
+    #testimonials-prev,
+    #testimonials-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonial-author {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .testimonial-author img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-slide {
+        padding: 20px;
+    }
+
+    .testimonial-slide blockquote {
+        font-size: 1rem;
+    }
+
+    .testimonial-slide p {
+        font-size: 0.875rem;
+    }
+}
+
+@keyframes cloud-float {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.animate-cloud {
+    animation: cloud-float 8s ease-in-out infinite;
+    mix-blend-mode: screen;
+}
+
+/* Testimonials Carousel Styles - Horizontal */
+.testimonials-track {
+    will-change: transform;
+    height: 100%;
+    align-items: center;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    height: 100%;
+}
+
+#testimonials-carousel {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#testimonials-carousel:active {
+    cursor: grabbing;
+}
+
+/* Stacking Cards Styles - Fixed Approach */
+.stacking-cards-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.stacking-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 2rem);
+    max-width: 1200px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+    z-index: 1;
+}
+
+/* Desktop styles */
+@media (min-width: 1280px) {
+    .stacking-card {
+        width: calc(100vw - 4rem);
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Card stacking animation states */
+.stacking-card.card-hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+}
+
+.stacking-card.card-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.stacking-card.card-stacked {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(-20vh) scale(0.85);
+    pointer-events: auto;
+}
+
+.stacking-card.card-final {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+/* Scroll trigger sections */
+.scroll-trigger {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Safari-specific fixes for portfolio carousel */
+@supports (-webkit-appearance: none) {
+    .portfolio-carousel-track {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+
+    .portfolio-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    /* Fix for Safari touch events */
+    .portfolio-carousel-container {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+
+    /* Prevent Safari from changing card dimensions during drag */
+    .portfolio-card img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none;
+    }
+
+    /* Fix height issues in Safari */
+    .portfolio-card.h-full {
+        height: auto !important;
+        min-height: 400px;
+    }
+
+    .portfolio-card.h-full .h-full {
+        height: 400px !important;
+    }
+}

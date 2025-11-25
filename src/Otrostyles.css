@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* Add any additional custom styles here */
+
+/* Testimonials Carousel Styles - Horizontal */
+.testimonials-track {
+    will-change: transform;
+    height: 100%;
+    align-items: center;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    height: 100%;
+}
+
+#testimonials-carousel {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#testimonials-carousel:active {
+    cursor: grabbing;
+}
+
+/* Stacking Cards Styles - Fixed Approach */
+.stacking-cards-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.stacking-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 2rem);
+    max-width: 1200px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+    z-index: 1;
+}
+
+/* Desktop styles */
+@media (min-width: 1280px) {
+    .stacking-card {
+        width: calc(100vw - 4rem);
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Card stacking animation states */
+.stacking-card.card-hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+    transition: all 0.6s ease-out;
+}
+
+.stacking-card.card-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.stacking-card.card-stacked {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(-20vh) scale(0.85);
+    pointer-events: auto;
+}
+
+.stacking-card.card-final {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+/* Scroll trigger sections */
+.scroll-trigger {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Safari-specific fixes for portfolio carousel */
+@supports (-webkit-appearance: none) {
+    .portfolio-carousel-track {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+    }
+    
+    .portfolio-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+    
+    /* Fix for Safari touch events */
+    .portfolio-carousel-container {
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+    
+    /* Prevent Safari from changing card dimensions during drag */
+    .portfolio-card img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+        pointer-events: none;
+    }
+    
+    /* Fix height issues in Safari */
+    .portfolio-card.h-full {
+        height: auto !important;
+        min-height: 400px;
+    }
+    
+    .portfolio-card.h-full .h-full {
+        height: 400px !important;
+    }
+}
