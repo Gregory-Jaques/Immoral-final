@@ -96,6 +96,39 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.img-hover-fade-films {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-hover-fade-films::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imgs/bg-films.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.img-hover-fade-films:hover::before {
+    opacity: 0.2;
+}
+
+.img-hover-fade-films>* {
+    position: relative;
+    z-index: 2;
+}
+
+.img-hover-fade-films img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 /* Transiciones para animación de proceso */
 .proceso-subtitulo {
     opacity: 0;

@@ -55,9 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Desktop Menu Scroll Effect ---
+
     const nav = document.querySelector('nav.hidden.xl\\:flex');
     const logoImg = nav?.querySelector('div:first-child img');
     const navLinksContainer = nav?.querySelector('.list-none');
+    const navArrows = navLinksContainer?.querySelectorAll('img[alt="arrowDown"]');
 
     if (nav && logoImg && navLinksContainer) {
         window.addEventListener('scroll', () => {
@@ -69,6 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoImg.src = '/imgs/Menues/logo-menu-oscuro.png';
                 navLinksContainer.classList.remove('text-white');
                 navLinksContainer.classList.add('text-black');
+
+                // Invert arrows to black (assuming they are white by default)
+                if (navArrows) {
+                    navArrows.forEach(arrow => arrow.classList.add('invert'));
+                }
             } else {
                 // Top state
                 nav.classList.remove('bg-white', 'shadow-md', 'py-2');
@@ -77,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoImg.src = '/imgs/Menues/logo-menu-claro.png';
                 navLinksContainer.classList.add('text-white');
                 navLinksContainer.classList.remove('text-black');
+
+                // Revert arrows to white
+                if (navArrows) {
+                    navArrows.forEach(arrow => arrow.classList.remove('invert'));
+                }
             }
         });
     }

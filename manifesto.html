@@ -10,13 +10,15 @@
 
 <body class="overflow-x-hidden w-dvw font-sans">
     <nav class="hidden xl:flex justify-between fixed inset-x-0 box-border px-10 pt-5 font-black text-xs uppercase z-20">
-        <div><img src="/imgs/Menues/logo-menu-claro.png" alt=""></div>
+        <a href="index.html">
+            <div><img src="/imgs/Menues/logo-menu-claro.png" alt=""></div>
+        </a>
         <div>
-            <div class="list-none flex flex-row items-center gap-12 text-white">
+            <div class="list-none flex flex-row items-center gap-12 text-black">
 
                 <div class="w-35 items-center flex flex-col relative" id="dropdownButton">
                     <div class="flex flex-row gap-3 justify-center" id="button">Quienes Somos
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
                     <div class="mt-0 absolute left-0 top-full z-40 w-50 hidden font-medium text-sm capitalize transition-all ease-out duration-300"
                         id="dropdown">
@@ -28,13 +30,13 @@
                                     <span class="submenu-content">Nuestra historia</span>
                                 </li>
                             </a>
-                            <a href="#">
+                            <a href="manifesto.html">
                                 <li
                                     class="py-3 px-5 border-b border-gray-300 w-full text-center hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
                                     <span class="submenu-content">Manifesto</span>
                                 </li>
                             </a>
-                            <a href="#">
+                            <a href="equipo.html">
                                 <li
                                     class="py-3 px-5 border-b border-gray-300 w-full text-center hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
                                     <span class="submenu-content">Equipo</span>
@@ -52,7 +54,7 @@
 
                 <div class="w-30 items-center flex flex-col relative" id="dropdownButton2">
                     <div class="flex flex-row gap-3 justify-center" id="button2">Servicios
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
                     <div class="mt-0 absolute left-0 top-full z-40 hidden w-50 font-medium text-sm capitalize transition-all ease-out duration-300"
                         id="dropdown2">
@@ -99,24 +101,29 @@
                 </div>
                 <div class="w-30 items-center flex flex-col relative" id="dropdownButton3">
                     <div class="flex flex-row gap-3 justify-center" id="button3">Verticales
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
                     <div class="mt-0 absolute left-0 top-full z-40 hidden w-max font-medium capitalize transition-all ease-out duration-300"
                         id="dropdown3">
                         <ul class="flex flex-col bg-[#f7f7f7] text-black">
                             <div class="w-full h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-700"></div>
-                            <li
-                                class="flex flex-col items-start gap-2 py-4 px-5 border-b border-gray-300 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
-                                <img src="/imgs/Menues/logo-fashion.svg" alt="imfashion" class="h-7 w-auto">
-                                <span class="text-sm font-light whitespace-nowrap submenu-content">Brandformance para
-                                    moda</span>
-                            </li>
-                            <li
-                                class="flex flex-col items-start gap-2 py-4 px-5 border-b border-gray-300 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
-                                <img src="/imgs/Menues/logo-films.svg" alt="imfilms" class="h-7 w-auto">
-                                <span class="text-sm font-light whitespace-nowrap submenu-content">Publicidad para
-                                    cine</span>
-                            </li>
+                            <a href="https://imfashion.es/" target="_blank">
+                                <li
+                                    class="flex flex-col items-start gap-2 py-4 px-5 border-b border-gray-300 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
+                                    <img src="/imgs/Menues/logo-fashion.svg" alt="imfashion" class="h-7 w-auto">
+                                    <span class="text-sm font-light whitespace-nowrap submenu-content">Brandformance
+                                        para
+                                        moda</span>
+                                </li>
+                            </a>
+                            <a href="https://imfilms.es/" target="_blank">
+                                <li
+                                    class="flex flex-col items-start gap-2 py-4 px-5 border-b border-gray-300 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
+                                    <img src="/imgs/Menues/logo-films.svg" alt="imfilms" class="h-7 w-auto">
+                                    <span class="text-sm font-light whitespace-nowrap submenu-content">Publicidad para
+                                        cine</span>
+                                </li>
+                            </a>
                             <li
                                 class="flex flex-col items-start gap-2 py-4 px-5 border-b border-gray-300 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 cursor-pointer submenu-item">
                                 <img src="/imgs/Menues/logo-content.svg" alt="imcontent" class="h-7 w-auto">
