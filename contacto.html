@@ -12,18 +12,18 @@
     <nav
         class="hidden xl:flex justify-between fixed inset-x-0 box-border px-10 pt-5 pb-5 font-black text-xs uppercase z-20">
         <a href="index.html">
-            <div><img src="/imgs/Menues/logo-menu-claro.png" alt=""></div>
+            <div><img src="/imgs/Menues/logo-menu-oscuro.png" alt=""></div>
         </a>
         <div>
-            <div class="list-none flex flex-row items-center gap-12 text-white">
+            <div class="list-none flex flex-row items-center gap-12 text-black">
 
-                <div class="w-auto items-center flex flex-col relative" id="dropdownButton">
+                <div class="w-35 items-center flex flex-col relative" id="dropdownButton">
                     <div class="flex flex-row gap-3 justify-center" id="button">Quienes Somos
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
-                    <div class="mt-3 absolute left-0 top-full z-40 w-36 hidden font-medium text-sm capitalize transition-all ease-out duration-300"
+                    <div class="mt-3 absolute left-0 top-full z-40 w-50 hidden font-medium text-sm capitalize transition-all ease-out duration-300"
                         id="dropdown">
-                        <ul class="flex flex-col bg-[#f7f7f7] text-white">
+                        <ul class="flex flex-col bg-[#f7f7f7] text-black">
                             <div class="w-full h-1 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-700"></div>
                             <a href="#">
                                 <li
@@ -49,7 +49,7 @@
 
                 <div class="w-30 items-center flex flex-col relative" id="dropdownButton2">
                     <div class="flex flex-row gap-3 justify-center" id="button2">Servicios
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
                     <div class="mt-3 absolute left-1/2 -translate-x-1/2 top-full z-40 hidden w-52 font-medium text-sm capitalize transition-all ease-out duration-300"
                         id="dropdown2">
@@ -96,7 +96,7 @@
                 </div>
                 <div class="w-30 items-center flex flex-col relative" id="dropdownButton3">
                     <div class="flex flex-row gap-3 justify-center" id="button3">Verticales
-                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3">
+                        <img src="/imgs/Menues/arrowDown.svg" alt="arrowDown" class="w-3 invert">
                     </div>
                     <div class="mt-3 absolute left-0 top-full z-40 hidden w-max font-medium capitalize transition-all ease-out duration-300"
                         id="dropdown3">
@@ -134,10 +134,10 @@
                         </ul>
                     </div>
                 </div>
-                <a href="casos.html">
+                <a href="#">
                     <li>Casos de exito</li>
                 </a>
-                <a href="contacto.html"
+                <a href="#"
                     class="flex items-center self-center h-10 px-8 bg-blue-500 text-white rounded hover:bg-blue-600">
                     <li>Contacto</li>
                 </a>
@@ -304,364 +304,148 @@
             </div>
         </div>
     </div>
-    <!--! HERO -->
-    <div class="w-dvw overflow-hidden h-screen xl:h-auto bg-black flex items-center justify-center">
-        <video src="/imgs/home-video.mp4" autoplay muted loop
-            class="w-auto h-auto max-w-full max-h-full object-contain"></video>
-    </div>
-    <!-- Section Services -->
-    <section class="w-dvw relative px-4 sm:px-6 md:px-8 xl:px-[4dvw] pt-16 sm:pt-24 xl:pt-42 pb-8">
-        <a href="https://imfashion.es" target="_blank">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div
-                    class="h-40 min-h-40 sm:h-52 sm:min-h-52 w-full bg-black hover:bg-[#8b1322] rounded-[18px] transition-colors duration-300 flex items-center justify-center cursor-pointer py-12 sm:py-24 img-hover-fade">
-                    <img src="/imgs/Menues/logo-fashion-blanco.svg" alt="imfashion" class="h-10 sm:h-12 w-auto">
+    <!-- Sección Principal de Contacto -->
+    <section class="w-full relative pt-32 pb-20 px-4 sm:px-8 xl:px-12 max-w-[1800px] mx-auto">
+        <!-- Grid ajustado: en XL el calendario ocupa más espacio (col-span-2 vs col-span-3) -->
+        <div class="grid grid-cols-1 xl:grid-cols-5 gap-12 items-start">
+
+            <!-- Columna Izquierda: Textos (Ocupa 2 de 5 columnas en XL) -->
+            <div class="justify-center xl:h-full xl:col-span-2 flex flex-col gap-8 pt-4 xl:sticky xl:top-32 px-2">
+                <h1 class="text-3xl sm:text-2xl lg:text-4xl font-black text-black">
+                    Una <span class="text-blue-500">conversación</span> honesta <br class="hidden xl:block"> puede
+                    cambiarlo todo.
+                </h1>
+
+                <div class="flex flex-col gap-6 text-lg sm:text-xl text-gray-800 font-light leading-relaxed w-10/12">
+                    <p>
+                        No te vamos a vender nada que no necesites.
+                        Solo queremos entender tu negocio, tus retos y tus objetivos.
+                    </p>
+                    <p>
+                        Y si vemos que podemos ayudarte, te diremos cómo.
+                        Sin adornos. Sin atajos.
+                    </p>
                 </div>
-        </a>
 
-        <a href="https://imfilms.es" target="_blank">
-            <div
-                class="h-40 min-h-40 sm:h-52 sm:min-h-52 w-full bg-black hover:bg-[#f6d305] rounded-[18px] transition-colors duration-300 flex items-center justify-center cursor-pointer py-12 sm:py-24 img-hover-fade-films">
-                <img src="/imgs/Menues/logo-films-blanco.svg" alt="imfilms" class="h-10 sm:h-12 w-auto">
-            </div>
-        </a>
-
-        <a href="#">
-            <div
-                class="h-40 min-h-40 sm:h-52 sm:min-h-52 w-full bg-black hover:bg-[#9520ea] rounded-[18px] transition-colors duration-300 flex items-center justify-center cursor-pointer py-12 sm:py-24 img-hover-fade">
-                <img src="/imgs/Menues/logo-content-blanco.svg" alt="imcontent" class="h-10 sm:h-12 w-auto">
-            </div>
-        </a>
-
-        <a href="#">
-            <div
-                class="h-40 min-h-40 sm:h-52 sm:min-h-52 w-full bg-black hover:bg-[#0582eb] rounded-[18px] transition-colors duration-300 flex items-center justify-center cursor-pointer py-12 sm:py-24 img-hover-fade">
-                <img src="/imgs/Menues/logo-ia-blanco.svg" alt="immoralia" class="h-10 sm:h-12 w-auto">
-            </div>
-        </a>
-        </div>
-    </section>
-    <!-- Section About Us -->
-    <section class="w-full  flex items-center justify-center bg-white relative z-10 overflow-hidden">
-        <!-- Contenedor con Aspect Ratio 16:9 -->
-        <div class="w-full aspect-video relative flex flex-col xl:flex-row max-w-[1920px] mx-auto">
-
-            <!-- Columna izquierda: Textos -->
-            <div
-                class="w-full h-1/2 xl:h-full xl:w-7/12 relative z-20 flex flex-col justify-center px-6 sm:px-12 xl:pl-32 py-8 xl:py-0">
-                <div class="max-w-3xl">
-                    <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl leading-tight">No somos una agencia.<br></h1>
-                    <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] mb-4 xl:mb-8 leading-tight">
-                        Somos tu equipo
-                        de<br>crecimiento.</h1>
-                    <p
-                        class="w-full mt-4 xl:mt-6 font-light text-sm sm:text-base xl:text-lg leading-relaxed text-gray-800">
-                        En Immoral no seguimos fórmulas genéricas ni ejecutamos sin pensar.
-                        Nos metemos en tu negocio. Entendemos tu mercado. Detectamos lo que otros no ven.<br><br
-                            class="hidden xl:block">
-
-                        Y desde ahí, diseñamos sistemas que van más allá del marketing:
-                        <b class="font-bold text-[#4889eb]">optimizamos procesos, integramos automatizaciones, aplicamos
-                            IA donde tiene sentido y hacemos que todo funcione mejor.</b><br><br
-                            class="hidden xl:block">
-
-                        Combinamos branding y performance para que dejes de depender solo de anuncios y empieces a
-                        construir una marca con resultados reales y sostenibles.
+                <div class="mt-4 flex flex-col gap-2">
+                    <h2 class="text-1xl sm:text-2xl font-black text-blue-500">
+                        Programa tu primera llamada.
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-800 font-light leading-relaxed w-10/12">
+                        Veamos si esto tiene sentido para ti y si somos el equipo que estás buscando.
                     </p>
                 </div>
             </div>
 
-            <!-- Columna derecha: Imágenes -->
-            <div class="w-full h-1/2 xl:h-full xl:w-5/12 relative flex items-end justify-center">
-                <!-- Montaña (Base) -->
-                <img src="/imgs/montana.png" alt="montana de Immoral"
-                    class="absolute bottom-0 right-0 w-[400%] max-w-[1000px] object-cover object-center z-0">
-
-                <!-- Nubes (Superpuestas por encima) -->
-                <img src="/imgs/montana-nubes.png" alt="nubes"
-                    class="absolute bottom-[-40%] right-[-20%] w-[1848px] max-w-none object-contain z-10 animate-cloud opacity-100 mix-blend-normal pointer-events-none">
-            </div>
-        </div>
-    </section>
-
-    <!--! Services -->
-    <section class="w-dvw bg-white flex flex-col xl:flex-row px-6 sm:px-8 pt-16 z-30">
-        <div class="w-full xl:w-1/2 mt-10">
-            <h1 class="font-Lexend font-black text-3xl sm:text-4xl xl:text-5xl ml-0 xl:ml-20">Crecimiento sin
-                fricción.<br></h1>
-            <h1
-                class="font-Lexend font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] ml-0 xl:ml-20 mb-6 xl:mb-10">
-                Hecho para ti.</h1>
-            <p
-                class="w-full xl:w-12/10 mt-6 xl:mt-15 font-light text-[16px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
-                Cada negocio necesita algo distinto. Por eso, diseñamos<br>
-                soluciones claras para marcas que quieren crecer, vender<br>
-                más o ser más eficientes.</p>
-        </div>
-        <div class="w-full xl:w-1/2 mt-8 xl:mt-10 flex flex-col items-start">
-            <a
-                class="px-6 py-3 bg-white rounded-lg text-[#4889eb] text-sm sm:text-base font-light ml-0 xl:ml-3 mt-3 sm:mt-5 border-2 border-[#4889eb]">Quiero
-                escalar mi eCommerce</a>
-            <a
-                class="px-6 py-3 bg-white rounded-lg text-[#4889eb] text-sm sm:text-base font-light ml-0 xl:ml-3 mt-3 sm:mt-5 border-2 border-[#4889eb]">Vendo
-                servicios y necesito más clientes</a>
-            <a
-                class="px-6 py-3 bg-white rounded-lg text-[#4889eb] text-sm sm:text-base font-light ml-0 xl:ml-3 mt-3 sm:mt-5 border-2 border-[#4889eb]">Quiero
-                mejorar procesos y automatizar tareas</a>
-        </div>
-
-    </section>
-
-    <!--! Why Us -->
-    <section
-        class="w-dvw relative bg-white flex flex-col items-center mt-12 sm:mt-24 xl:mt-52 mb-16 sm:mb-24 xl:mb-32 px-6">
-        <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-center">No lo hacemos como los demás.<br></h1>
-        <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] mb-6 xl:mb-10 text-center">Y por esto
-            funciona.</h1>
-        <img src="/imgs/line-box.png" alt="linea que conecta concepto"
-            class="hidden xl:block w-11/12 sm:w-9/12 xl:w-auto">
-        <div class="max-w-10/12 flex flex-wrap justify-center items-start gap-4 sm:gap-6 xl:gap-8 h-auto mt-6">
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
-                <img src="/imgs/ico-home-box-1.png" alt="icono">
-                <h2 class="font-light text-sm pt-4 text-center">No seguimos moda.</h2>
-                <h2 class="font-light text-sm text-[#4889eb] text-center">Aplicamos criterio.</h2>
-            </div>
-
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-[28px]">
-                <img src="/imgs/ico-home-box-2.png" alt="icono">
-                <h2 class="font-light text-sm pt-4 text-center">Sin métricas vacias.</h2>
-                <h2 class="font-light text-sm text-[#4889eb] text-center">Hablamos de negocio.</h2>
-            </div>
-
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
-                <img src="/imgs/ico-home-box-3.png" alt="icono">
-                <h2 class="font-light text-sm pt-4 text-center">No hacemos lo fácil.</h2>
-                <h2 class="font-light text-sm text-[#4889eb] text-center">Hacemos lo que funciona.</h2>
-            </div>
-
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
-                <img src="/imgs/ico-home-box-4.png" alt="icono">
-                <h2 class="font-light text-sm pt-4 text-center">No ejecutamos por ejecutar.</h2>
-                <h2 class="font-light text-sm text-[#4889eb] text-center">Diseñamos con intención.</h2>
-            </div>
-
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
-                <img src="/imgs/ico-home-box-5.png" alt="icono">
-                <h2 class="font-light text-sm pt-4 text-center">No solo vendemos más.</h2>
-                <h2 class="font-light text-sm text-[#4889eb] text-center">Hacemos que trabajes mejor.</h2>
-            </div>
-        </div>
-        <h3 class="font-light text-xl text-black text-center mt-16">La diferencia está en cómo pensando y en cómo lo
-            llevamos a la práctica.</h3>
-    </section>
-    <!-- How We Do -->
-    <section class="w-dvw xl:h-dvh relative bg-black flex flex-col xl:flex-row">
-        <div
-            class="w-full xl:w-1/3 h-auto xl:h-full relative flex flex-col items-center justify-center px-6 sm:px-8 py-12 xl:py-0">
-            <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-left text-white">Nos integramos. <br>Diseñamos.
-                <br>Ejecutamos. <br>Escalamos.
-            </h1>
-        </div>
-        <div class="w-full xl:w-1/3 h-[40vh] sm:h-[50vh] xl:h-full relative overflow-hidden">
-            <img src="/imgs/img-como-hacemos-1.png" alt="imagen de como hacemos 1"
-                class="object-cover absolute w-full h-full">
-        </div>
-        <div
-            class="w-full xl:w-1/3 h-auto xl:h-full relative flex flex-col justify-center items-start gap-4 px-6 sm:px-8 py-12 xl:py-0">
-
-            <div class="w-12/12 flex ml-4 sm:ml-16 items-start proceso-item" data-proceso="1">
-                <h1 class="font-sans font-thin text-6xl text-white">1</h1>
-                <p class="font-sans font-light text-lg text-white ml-4 sm:ml-7 mt-5 leading-tight">
-                    <b class="font-sans font-bold proceso-titulo">Diagnóstico sin atajos</b><br>
-                    <b class="hidden font-light proceso-subtitulo">Nos metemos en tu operación. Analizamos,<br>
-                        entendemos, preguntamos</b>
-                </p>
-            </div>
-
-            <div class="w-12/12 flex ml-4 sm:ml-16 mt-6 proceso-item" data-proceso="2">
-                <h1 class="font-sans font-thin text-6xl text-white">2</h1>
-                <p class="font-sans font-light text-lg text-white ml-4 sm:ml-4 mt-5 leading-tight">
-                    <b class="font-sans font-bold proceso-titulo">Estrategia personalizada</b><br>
-                    <b class="hidden font-light proceso-subtitulo">Sin plantillas. Sin PowerPoints eternos. Una<br>
-                        hoja de ruta clara, accionable y medible.</b>
-                </p>
-            </div>
-
-            <div class="w-12/12 flex ml-4 sm:ml-16 mt-6 proceso-item" data-proceso="3">
-                <h1 class="font-sans font-thin text-6xl text-white">3</h1>
-                <p class="font-sans font-light text-lg text-white ml-4 sm:ml-4 leading-tight">
-                    <b class="font-sans font-bold proceso-titulo">Implementación sin fricciones</b><br>
-                    <b class="font-light proceso-subtitulo">Nos integramos como parte de tu equipo.<br>
-                        Ejecutamos con cuidado, IA, automaticación<br>
-                        y foco.</b>
-                </p>
-            </div>
-
-            <div class="w-12/12 flex items-start ml-4 sm:ml-16 mt-6 proceso-item" data-proceso="4">
-                <h1 class="font-sans font-thin text-6xl text-white">4</h1>
-                <p class="font-sans font-light text-lg text-white ml-4 sm:ml-4 mt-5 leading-tight">
-                    <b class="font-sans font-bold proceso-titulo">Optimización continua</b><br>
-                    <b class="hidden font-light proceso-subtitulo">Leemos los datos. Detectamos patrones.<br>
-                        Afinamos cada detalle. Siempre.</b>
-                </p>
+            <!-- Columna Derecha: Calendly -->
+            <div class="xl:col-span-3 w-full flex justify-center xl:justify-end overflow-x-auto">
+                <div class="w-full bg-white rounded-2xl shadow-sm overflow-hidden relative xl:min-w-[1060px]">
+                    <!-- Widget de Calendly -->
+                    <!-- URL LIMPIA: Sin hide_event_type_details=1 -->
+                    <div class="calendly-inline-widget w-full"
+                        data-url="https://calendly.com/d/cmvg-s3x-wqy/haz-que-tu-marca-crezca-de-verdad?hide_gdpr_banner=1"
+                        style="min-width: 320px; height: 750px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                        async></script>
+                </div>
             </div>
 
         </div>
     </section>
-    <!-- Results -->
-    <section class="w-full bg-white flex flex-col items-center justify-center py-24">
-        <div class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 px-6">
-            <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h1 class="font-sans font-black text-3xl sm:text-4xl xl:text-5xl mb-6">Resultados</h1>
-                <a href="#"
-                    class="px-6 py-3 rounded-lg text-lg font-light border-2 bg-[#000000] text-[#FFFFFF] border-[#000000] transition-colors duration-200 cursor-pointer hover:bg-white hover:text-blue-500 hover:border-blue-500 pointer-events-auto z-30">VER
-                    CASOS DE ÉXITO</a>
-            </div>
-            <div class="w-full lg:w-2/3 flex justify-center">
-                <div class="w-full max-w-[800px] bg-gray-100 rounded-2xl py-8 px-10">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                        <!-- KPI 1 -->
-                        <div class="text-center">
-                            <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">15+</h2>
-                            <p class="font-light text-sm mt-2 text-gray-700">+15 años diseñando<br>estrategias reales
-                            </p>
-                        </div>
-                        <!-- KPI 2 -->
-                        <div class="text-center">
-                            <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">28+</h2>
-                            <p class="font-light text-sm mt-2 text-gray-700">+28 marcas que hoy<br>crecen y trabajan
-                                mejor<br>con nosotros</p>
-                        </div>
-                        <!-- KPI 3 -->
-                        <div class="text-center">
-                            <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">60M+</h2>
-                            <p class="font-light text-sm mt-2 text-gray-700">+60 millones<br>invertidos con retorno</p>
-                        </div>
+    <!-- Sección Formulario y Mapa -->
+    <!-- CAMBIO: lg:grid-cols-5 en lugar de lg:grid-cols-2 -->
+    <section class="w-full grid grid-cols-1 lg:grid-cols-5">
+
+        <!-- Columna Izquierda: Formulario (40% -> col-span-2) -->
+        <div class="lg:col-span-2 bg-[#FAFAFA] px-6 py-20 sm:px-16 lg:px-12 flex flex-col justify-center">
+            <div class="max-w-lg w-full mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-black text-black mb-6">
+                    ¿Prefieres escribirnos?
+                </h2>
+                <p class="text-gray-600 mb-12 font-light leading-relaxed">
+                    También puedes dejarnos un mensaje a través del formulario.
+                    Respondemos con cabeza, no con respuestas automáticas.
+                </p>
+
+                <form class="space-y-8">
+                    <!-- Nombre -->
+                    <div class="relative">
+                        <input type="text" id="nombre" name="nombre" placeholder=" "
+                            class="peer w-full border-b border-gray-400 bg-transparent py-2 text-black focus:outline-none focus:border-black transition-colors placeholder-transparent" />
+                        <label for="nombre"
+                            class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                            Nombre
+                        </label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--! Testimonials -->
-    <!-- Simple Testimonials (nuevo diseño simplificado) -->
-    <section class="w-full bg-white py-16 sm:py-20 xl:py-24">
-        <div class="max-w-[1600px] mx-auto px-8">
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
-                <div>
-                    <h2 class="font-black text-3xl xl:text-5xl">
-                        Lo que más valoran no <span class="hidden xl:inline"><br></span>
-                        es solo lo que hacemos, <span class="hidden xl:inline"><br></span>
-                        <span class="text-[#4889eb]">es cómo lo hacemos</span>
-                    </h2>
-                </div>
 
-
-
-                <div class="relative px-8 xl:px-12">
-                    <button id="simple-testimonials-prev" aria-label="Anterior"
-                        class="absolute left-0 xl:-left-16 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#4889eb]">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 18L9 12L15 6" stroke="#000" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-
-                    <button id="simple-testimonials-next" aria-label="Siguiente"
-                        class="absolute right-0 xl:-right-16 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#4889eb]">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="#000" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-
-                    <div id="simple-testimonials-carousel" class="overflow-hidden cursor-grab">
-                        <div class="testimonials-track flex transition-transform duration-300 ease-out">
-                            <!-- Card 1 -->
-                            <div
-                                class="testimonial-card flex-shrink-0 w-full xl:w-[520px] bg-white border border-gray-200 rounded-2xl shadow-sm p-6 mr-6">
-                                <h3 class="text-xl font-light text-[#4889eb] mb-2">Compromiso, proactividad y
-                                    resolución</h3>
-                                <p class="text-gray-700 mb-6">
-                                    Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer
-                                    que la marca crezca les han convertido en partners fundamentales para el
-                                    crecimiento de negocio online, la estrategia de marketing digital y nuestra
-                                    inversión en medios publicitarios.
-                                </p>
-                                <div class="flex items-center gap-3">
-                                    <img src="/imgs/bobo-logo.svg" alt="Logo de Bobo Choses"
-                                        class="h-16 w-16 object-contain" />
-                                    <div>
-                                        <p class="text-gray-900 font-semibold">AINARA SIMÓN</p>
-                                        <p class="text-gray-600">Chief Digital Manager, Bobo Choses</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 2 -->
-                            <div
-                                class="testimonial-card flex-shrink-0 w-full xl:w-[520px] bg-white border border-gray-200 rounded-2xl shadow-sm p-6 mr-6">
-                                <h3 class="text-xl font-light text-[#4889eb] mb-2">Compromiso, proactividad y
-                                    resolución</h3>
-                                <p class="text-gray-700 mb-6">
-                                    Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer
-                                    que la marca crezca les han convertido en partners fundamentales para el
-                                    crecimiento de negocio online, la estrategia de marketing digital y nuestra
-                                    inversión en medios publicitarios.
-                                </p>
-                                <div class="flex items-center gap-3">
-                                    <img src="/imgs/bobo-logo.svg" alt="Logo de Bobo Choses"
-                                        class="h-16 w-16  object-contain" />
-                                    <div>
-                                        <p class="text-gray-900 font-semibold">AINARA SIMÓN</p>
-                                        <p class="text-gray-600">Chief Digital Manager, Bobo Choses</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Card 3 -->
-                            <div
-                                class="testimonial-card flex-shrink-0 w-full xl:w-[520px] bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
-                                <h3 class="text-xl font-light text-[#4889eb] mb-2">Compromiso, proactividad y
-                                    resolución</h3>
-                                <p class="text-gray-700 mb-6">
-                                    Su continua aportación, sus conocimientos, su experiencia y sus ganas por hacer
-                                    que la marca crezca les han convertido en partners fundamentales para el
-                                    crecimiento de negocio online, la estrategia de marketing digital y nuestra
-                                    inversión en medios publicitarios.
-                                </p>
-                                <div class="flex items-center gap-3">
-                                    <img src="/imgs/bobo-logo.svg" alt="Logo de Bobo Choses"
-                                        class="h-16 w-16  object-contain" />
-                                    <div>
-                                        <p class="text-gray-900 font-semibold">AINARA SIMÓN</p>
-                                        <p class="text-gray-600">Chief Digital Manager, Bobo Choses</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Correo -->
+                    <div class="relative">
+                        <input type="email" id="email" name="email" placeholder=" "
+                            class="peer w-full border-b border-gray-400 bg-transparent py-2 text-black focus:outline-none focus:border-black transition-colors placeholder-transparent" />
+                        <label for="email"
+                            class="absolute left-0 -top-3.5 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                            Correo Electrónico
+                        </label>
                     </div>
-                </div>
+
+                    <!-- Mensaje -->
+                    <div class="relative pt-4">
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Mensaje"
+                            class="w-full border border-gray-400 bg-transparent p-3 text-black focus:outline-none focus:border-black rounded-md resize-none placeholder-gray-400"></textarea>
+                    </div>
+
+                    <!-- Checkbox y Botón -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="peer sr-only" />
+                            <div
+                                class="w-5 h-5 border border-gray-400 rounded-sm peer-checked:bg-black peer-checked:border-black transition-colors relative flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white opacity-0 peer-checked:opacity-100 transition-opacity"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span
+                                class="text-xs text-black uppercase tracking-wide font-medium group-hover:text-gray-600 transition-colors">
+                                Acepto <a href="#" class="underline">política de privacidad</a>
+                            </span>
+                        </label>
+
+                        <button type="submit"
+                            class="bg-black text-white px-10 py-3 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-all duration-300 w-full sm:w-auto">
+                            Enviar
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-    <!-- CTA Home -->
-    <section
-        class="w-full max-w-full relative flex flex-col items-center min-h-[60vh] sm:min-h-[70vh] xl:min-h-[50vh] pt-16 sm:pt-24 xl:pt-32 pb-16 sm:pb-24 xl:pb-32 overflow-hidden">
-        <iframe src="https://my.spline.design/glassmorphlandingpage-ZyQlmkgnMPSbE8yGqSQ0xNEY/" frameborder="0"
-            width="100%" height="100%" class="absolute inset-0 z-10 pointer-events-auto"></iframe>
-        <div class="relative z-20 flex flex-col items-center pointer-events-none">
-            <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-center pointer-events-none">El crecimiento real
-                empieza<br></h1>
-            <h1
-                class="font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] mb-6 xl:mb-10 text-center pointer-events-none">
-                con una buena conversación.</h1>
 
-            <h3 class="max-w-3xl font-light text-base sm:text-lg xl:text-xl text-black text-center pointer-events-none">
-                No necesitas más ruidos. Necesitas una estretegia que funcione, procesos que fluyan y un equipo que
-                piense como tú</h3>
-            <a href="#"
-                class="px-6 py-3 rounded-lg text-base sm:text-lg font-light ml-0 xl:ml-3 mt-4 sm:mt-5 border-2 bg-[#000000] text-[#FFFFFF] border-[#000000] transition-colors duration-200 cursor-pointer hover:bg-white hover:text-blue-500 hover:border-blue-500 pointer-events-auto z-30">SOLICITA
-                UNA CONSULTORÍA</a>
+        <!-- Columna Derecha: Mapa y Texto (60% -> col-span-3) -->
+        <div class="lg:col-span-3 bg-[#1E63FF] px-6 py-20 sm:px-16 lg:px-24 flex flex-col justify-center text-white">
+            <div class="max-w-full w-full mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-black mb-6">
+                    ¿Tomamos un café?
+                </h2>
+                <div class="space-y-4 font-light leading-relaxed mb-12 opacity-90 w-7/12">
+                    <p>
+                        Si estás en Barcelona o cerca, nos encantará recibirte.
+                        Charlamos sobre tu negocio, tus objetivos y cómo podríamos ayudarte a escalar.
+                    </p>
+                    <p>
+                        Todo con calma. Y con buen café.
+                    </p>
+                </div>
+
+                <!-- Contenedor del Mapa -->
+                <div class="w-full h-[300px] bg-gray-200 rounded-lg overflow-hidden shadow-lg relative">
+                    <!-- Aquí irá el iframe de Google Maps -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.147727696266!2d2.163406376562596!3d41.39263699981884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a292f1555555%3A0x1234567890abcdef!2sPasseig%20de%20Gr%C3%A0cia%2C%2021%2C%2008007%20Barcelona!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
         </div>
     </section>
     <!-- Footer -->

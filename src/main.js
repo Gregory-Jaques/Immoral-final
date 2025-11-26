@@ -62,11 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const navArrows = navLinksContainer?.querySelectorAll('img[alt="arrowDown"]');
 
     if (nav && logoImg && navLinksContainer) {
+        // Check if the page starts with a dark logo (Light Mode Page)
+        const isInitialDark = logoImg.src.includes('logo-menu-oscuro.png');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 // Scrolled state
-                nav.classList.add('bg-white', 'shadow-md', 'py-2');
-                nav.classList.remove('pt-5', 'bg-transparent');
+                nav.classList.add('backdrop-blur-md', 'bg-white/50', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
 
                 logoImg.src = '/imgs/Menues/logo-menu-oscuro.png';
                 navLinksContainer.classList.remove('text-white');
@@ -78,16 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 // Top state
-                nav.classList.remove('bg-white', 'shadow-md', 'py-2');
-                nav.classList.add('pt-5', 'bg-transparent');
+                nav.classList.remove('backdrop-blur-md', 'bg-white/50', 'shadow-sm');
+                nav.classList.add('bg-transparent');
 
-                logoImg.src = '/imgs/Menues/logo-menu-claro.png';
-                navLinksContainer.classList.add('text-white');
-                navLinksContainer.classList.remove('text-black');
+                // Only revert colors if the page was NOT initially dark
+                if (!isInitialDark) {
+                    logoImg.src = '/imgs/Menues/logo-menu-claro.png';
+                    navLinksContainer.classList.add('text-white');
+                    navLinksContainer.classList.remove('text-black');
 
-                // Revert arrows to white
-                if (navArrows) {
-                    navArrows.forEach(arrow => arrow.classList.remove('invert'));
+                    // Revert arrows to white
+                    if (navArrows) {
+                        navArrows.forEach(arrow => arrow.classList.remove('invert'));
+                    }
                 }
             }
         });
