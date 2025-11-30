@@ -64,6 +64,17 @@ function initMenu() {
             if (mobileMenuOverlay) {
                 mobileMenuOverlay.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+                
+                gsap.fromTo(mobileMenuOverlay, 
+                    { opacity: 0 }, 
+                    { opacity: 1, duration: 0.3, ease: "power2.out" }
+                );
+                
+                const menuItems = mobileMenuOverlay.querySelectorAll('.border-b, a[href="#"]');
+                gsap.fromTo(menuItems,
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.4, stagger: 0.02, ease: "power2.out", delay: 0.1 }
+                );
             }
         });
     }
@@ -73,16 +84,30 @@ function initMenu() {
         mobileMenuCloseBtn.parentNode.replaceChild(newBtn, mobileMenuCloseBtn);
         newBtn.addEventListener('click', () => {
             if (mobileMenuOverlay) {
-                mobileMenuOverlay.classList.add('hidden');
-                document.body.style.overflow = '';
+                gsap.to(mobileMenuOverlay, {
+                    opacity: 0,
+                    duration: 0.25,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        mobileMenuOverlay.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }
+                });
             }
         });
     }
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) {
-            mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
+            gsap.to(mobileMenuOverlay, {
+                opacity: 0,
+                duration: 0.25,
+                ease: "power2.in",
+                onComplete: () => {
+                    mobileMenuOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
         }
     });
 
@@ -98,13 +123,34 @@ function initMenu() {
             if (targetSubmenu) {
                 const isExpanded = newBtn.getAttribute('aria-expanded') === 'true';
                 if (isExpanded) {
-                    targetSubmenu.classList.add('hidden');
+                    gsap.to(targetSubmenu, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.3,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                            targetSubmenu.classList.add('hidden');
+                            targetSubmenu.style.height = '';
+                            targetSubmenu.style.opacity = '';
+                        }
+                    });
                     newBtn.setAttribute('aria-expanded', 'false');
-                    if (arrow) arrow.style.transform = 'rotate(0deg)';
+                    if (arrow) {
+                        gsap.to(arrow, { rotation: 0, duration: 0.3, ease: "power2.inOut" });
+                    }
                 } else {
                     targetSubmenu.classList.remove('hidden');
+                    const fullHeight = targetSubmenu.scrollHeight;
+                    gsap.fromTo(targetSubmenu,
+                        { height: 0, opacity: 0 },
+                        { height: fullHeight, opacity: 1, duration: 0.4, ease: "power2.out", onComplete: () => {
+                            targetSubmenu.style.height = 'auto';
+                        }}
+                    );
                     newBtn.setAttribute('aria-expanded', 'true');
-                    if (arrow) arrow.style.transform = 'rotate(180deg)';
+                    if (arrow) {
+                        gsap.to(arrow, { rotation: 180, duration: 0.3, ease: "power2.inOut" });
+                    }
                 }
             }
         });
@@ -144,6 +190,26 @@ function initMenu() {
         window.addEventListener('scroll', handleScroll);
         handleScroll();
     }
+
+    // FIX: Cerrar menú al hacer click en cualquier link
+const menuLinks = mobileMenuOverlay?.querySelectorAll('a[href]:not([data-target])');
+if (menuLinks) {
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenuOverlay && !mobileMenuOverlay.classList.contains('hidden')) {
+                gsap.to(mobileMenuOverlay, {
+                    opacity: 0,
+                    duration: 0.25,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        mobileMenuOverlay.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    });
+}
 }
 
 // --- 3. FUNCIÓN CÓMO LO HACEMOS ---
@@ -1079,6 +1145,12 @@ function initScrollAnimations() {
 
 // --- INICIALIZACIÓN GLOBAL ---
 function initAll() {
+    // FIX GLOBAL: Desactivamos la restauración automática del scroll para SIEMPRE.
+    // Esto obliga al navegador a obedecer nuestros comandos de scroll manuales.
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     initDropdowns();
     initMenu();
     initHowWeDo();
@@ -1093,8 +1165,8 @@ function initAll() {
     initModals();
     initCalendly();
     initHeroPhysics();
-    initScrollAnimations(); // Agregado: Animaciones de Scroll
-    initGsapAnimations(); // Agregado: GSAP Animations
+    initScrollAnimations();
+    initGsapAnimations();
 }
 
 // --- 16. GSAP ANIMATIONS ---
@@ -1195,199 +1267,214 @@ function splitTextIntoLines(element) {
 }
 
 function initGsapAnimations() {
-    // 1. Block Reveal Animation (Lando Norris style)
-    const blockRevealElements = document.querySelectorAll('.block-reveal');
+    // IMPORTANTE: Esperamos a que las fuentes estén listas para calcular las líneas correctamente.
+    // Esto evita que el texto se rompa mal y funciona perfecto con View Transitions.
+    document.fonts.ready.then(() => {
+        
+        // 1. Block Reveal Animation (Lando Norris style)
+        const blockRevealElements = document.querySelectorAll('.block-reveal');
 
-    // Phase 1: Setup DOM for ALL block-reveal elements
-    blockRevealElements.forEach(element => {
-        // Create mask if not exists
-        if (!element.querySelector('.block-reveal-mask')) {
-            const wrapper = document.createElement('div');
-            wrapper.classList.add('block-reveal-wrapper');
-            wrapper.style.position = 'relative';
-            wrapper.style.display = 'inline-block';
-            wrapper.style.overflow = 'hidden';
+        // Phase 1: Setup DOM for ALL block-reveal elements
+        blockRevealElements.forEach(element => {
+            // Create mask if not exists
+            if (!element.querySelector('.block-reveal-mask')) {
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('block-reveal-wrapper');
+                wrapper.style.position = 'relative';
+                wrapper.style.display = 'inline-block';
+                wrapper.style.overflow = 'hidden';
 
-            // Determine wrapper type: use 'span' if element is 'A' to avoid nesting, otherwise 'a'
-            const wrapperType = element.tagName.toLowerCase() === 'a' ? 'span' : 'a';
-            const textWrapper = document.createElement(wrapperType);
-            textWrapper.style.display = 'inline-block';
-            textWrapper.style.textDecoration = 'none';
-            textWrapper.style.color = 'inherit';
-            textWrapper.style.pointerEvents = 'none'; // Prevent interaction
+                // Determine wrapper type: use 'span' if element is 'A' to avoid nesting, otherwise 'a'
+                const wrapperType = element.tagName.toLowerCase() === 'a' ? 'span' : 'a';
+                const textWrapper = document.createElement(wrapperType);
+                textWrapper.style.display = 'inline-block';
+                textWrapper.style.textDecoration = 'none';
+                textWrapper.style.color = 'inherit';
+                textWrapper.style.pointerEvents = 'none'; // Prevent interaction
 
-            // Wrap content
-            while (element.firstChild) {
-                textWrapper.appendChild(element.firstChild);
+                // Wrap content
+                while (element.firstChild) {
+                    textWrapper.appendChild(element.firstChild);
+                }
+                wrapper.appendChild(textWrapper);
+                element.appendChild(wrapper);
+
+                const mask = document.createElement('div');
+                mask.classList.add('block-reveal-mask');
+                mask.style.position = 'absolute';
+                mask.style.top = '0';
+                mask.style.left = '0';
+                mask.style.width = '100%';
+                mask.style.height = '100%';
+                mask.style.backgroundColor = 'currentColor'; // Usa el color del texto
+                mask.style.zIndex = '2';
+                mask.style.transform = 'translateX(-101%)'; // Start hidden to the left
+                wrapper.appendChild(mask);
+
+                // Set initial state of content
+                gsap.set(wrapper.children[0], { opacity: 0 }); // Hide text initially
             }
-            wrapper.appendChild(textWrapper);
-            element.appendChild(wrapper);
 
-            const mask = document.createElement('div');
-            mask.classList.add('block-reveal-mask');
-            mask.style.position = 'absolute';
-            mask.style.top = '0';
-            mask.style.left = '0';
-            mask.style.width = '100%';
-            mask.style.height = '100%';
-            mask.style.backgroundColor = 'currentColor'; // Usa el color del texto
-            mask.style.zIndex = '2';
-            mask.style.transform = 'translateX(-101%)'; // Start hidden to the left
-            wrapper.appendChild(mask);
+            // Unhide wrapper (handled by CSS visibility: hidden)
+            const wrapper = element.querySelector('.block-reveal-wrapper');
+            wrapper.style.visibility = 'visible';
 
-            // Set initial state of content
-            gsap.set(wrapper.children[0], { opacity: 0 }); // Hide text initially
-        }
-
-        // Unhide wrapper (handled by CSS visibility: hidden)
-        const wrapper = element.querySelector('.block-reveal-wrapper');
-        wrapper.style.visibility = 'visible';
-
-        // Unhide the original element (handled by CSS .block-reveal { visibility: hidden })
-        element.style.visibility = 'visible';
-    });
-
-    // Phase 2: Animate Groups (Staggered)
-    const groups = document.querySelectorAll('.reveal-group');
-    groups.forEach(group => {
-        const children = group.querySelectorAll('.block-reveal');
-        if (children.length === 0) return;
-
-        children.forEach(child => child.classList.add('has-group-animation')); // Mark as handled
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: group,
-                start: "top 80%",
-                toggleActions: "play none none none"
-            }
+            // Unhide the original element (handled by CSS .block-reveal { visibility: hidden })
+            element.style.visibility = 'visible';
         });
 
-        children.forEach((child, index) => {
-            const mask = child.querySelector('.block-reveal-mask');
-            const content = child.querySelector('.block-reveal-wrapper').children[0];
+        // Phase 2: Animate Groups (Staggered)
+        const groups = document.querySelectorAll('.reveal-group');
+        groups.forEach(group => {
+            const children = group.querySelectorAll('.block-reveal');
+            if (children.length === 0) return;
+
+            children.forEach(child => child.classList.add('has-group-animation')); // Mark as handled
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: group,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            children.forEach((child, index) => {
+                const mask = child.querySelector('.block-reveal-mask');
+                const content = child.querySelector('.block-reveal-wrapper').children[0];
+
+                // Force initial state
+                gsap.set(mask, { x: '-101%' });
+                gsap.set(content, { opacity: 0 });
+
+                // Create a nested timeline for this child
+                const childTl = gsap.timeline();
+
+                childTl.to(mask, {
+                    duration: 0.4, // ⬅️ VELOCIDAD: Máscara cubre
+                    x: '0%',
+                    ease: "power2.inOut"
+                })
+                    .set(content, { opacity: 1 })
+                    .to(mask, {
+                        duration: 0.3, // ⬅️ VELOCIDAD: Máscara descubre
+                        x: '101%',
+                        ease: "power2.inOut"
+                    });
+
+                // Add to master timeline with overlap/stagger (0.2s delay between starts)
+                tl.add(childTl, index * 0.2);
+            });
+        });
+
+        // Phase 3: Animate Standalone Elements
+        blockRevealElements.forEach(element => {
+            if (element.classList.contains('has-group-animation')) return;
+
+            const mask = element.querySelector('.block-reveal-mask');
+            const content = element.querySelector('.block-reveal-wrapper').children[0];
 
             // Force initial state
             gsap.set(mask, { x: '-101%' });
             gsap.set(content, { opacity: 0 });
 
-            // Create a nested timeline for this child
-            const childTl = gsap.timeline();
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
 
-            childTl.to(mask, {
-                duration: 0.4, // ⬅️ VELOCIDAD: Máscara cubre
+            tl.to(mask, {
+                duration: 0.3, // Slower
                 x: '0%',
                 ease: "power2.inOut"
             })
                 .set(content, { opacity: 1 })
                 .to(mask, {
-                    duration: 0.3, // ⬅️ VELOCIDAD: Máscara descubre
+                    duration: 0.3, // Slower
                     x: '101%',
                     ease: "power2.inOut"
                 });
-
-            // Add to master timeline with overlap/stagger (0.2s delay between starts)
-            tl.add(childTl, index * 0.2);
         });
-    });
 
-    // Phase 3: Animate Standalone Elements
-    blockRevealElements.forEach(element => {
-        if (element.classList.contains('has-group-animation')) return;
+        // 2. Staggered Text Reveal (SplitText simulation)
+        const splitTextElements = document.querySelectorAll('.reveal-text');
 
-        const mask = element.querySelector('.block-reveal-mask');
-        const content = element.querySelector('.block-reveal-wrapper').children[0];
+        splitTextElements.forEach(element => {
+            if (!element.classList.contains('split-done')) {
+                splitTextIntoSpans(element);
+                element.classList.add('split-done');
+            }
 
-        // Force initial state
-        gsap.set(mask, { x: '-101%' });
-        gsap.set(content, { opacity: 0 });
+            // Unhide element (handled by CSS visibility: hidden)
+            element.style.visibility = 'visible';
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: element,
-                start: "top 80%",
-                toggleActions: "play none none none"
+            const chars = element.querySelectorAll('.char');
+
+            if (chars.length > 0) {
+                // Ensure chars are visible for calculation but hidden by opacity
+                gsap.set(chars, { opacity: 0, y: 50 });
+
+                gsap.to(chars, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.6, // Slower
+                    stagger: 0.02,
+                    ease: "back.out(1.7)",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none" // Disable reverse
+                    }
+                });
             }
         });
 
-        tl.to(mask, {
-            duration: 0.3, // Slower
-            x: '0%',
-            ease: "power2.inOut"
-        })
-            .set(content, { opacity: 1 })
-            .to(mask, {
-                duration: 0.3, // Slower
-                x: '101%',
-                ease: "power2.inOut"
-            });
-    });
+        // 3. Line Reveal Animation (for long texts)
+        const lineRevealElements = document.querySelectorAll('.reveal-lines');
 
-    // 2. Staggered Text Reveal (SplitText simulation)
-    const splitTextElements = document.querySelectorAll('.reveal-text');
+        lineRevealElements.forEach(element => {
+            // Reiniciamos el contenido si ya se había dividido (para recalcular bien al cambiar de página o redimensionar)
+            if (element.classList.contains('lines-split-done')) {
+                 // Opcional: Si quisieras recalcular en resize, podrías limpiar aquí. 
+                 // Por ahora, asumimos que si ya está hecho, está bien, PERO como estamos esperando a las fuentes,
+                 // es seguro que el cálculo inicial será correcto.
+            }
+            
+            if (!element.classList.contains('lines-split-done')) {
+                element.style.visibility = 'hidden'; // Hide initially
+                splitTextIntoLines(element);
+                element.classList.add('lines-split-done');
+            }
 
-    splitTextElements.forEach(element => {
-        if (!element.classList.contains('split-done')) {
-            splitTextIntoSpans(element);
-            element.classList.add('split-done');
-        }
+            element.style.visibility = 'visible'; // Unhide after split
 
-        // Unhide element (handled by CSS visibility: hidden)
-        element.style.visibility = 'visible';
+            const lines = element.querySelectorAll('.line-reveal-wrapper');
 
-        const chars = element.querySelectorAll('.char');
+            if (lines.length > 0) {
+                // Animate lines (GSAP SplitText style with yPercent)
+                const innerSpans = element.querySelectorAll('.line-reveal-inner');
 
-        if (chars.length > 0) {
-            // Ensure chars are visible for calculation but hidden by opacity
-            gsap.set(chars, { opacity: 0, y: 50 });
-
-            gsap.to(chars, {
-                y: 0,
-                opacity: 1,
-                duration: 1.6, // Slower
-                stagger: 0.02,
-                ease: "back.out(1.7)",
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 85%",
-                    toggleActions: "play none none none" // Disable reverse
-                }
-            });
-        }
-    });
-
-    // 3. Line Reveal Animation (for long texts)
-    const lineRevealElements = document.querySelectorAll('.reveal-lines');
-
-    lineRevealElements.forEach(element => {
-        if (!element.classList.contains('lines-split-done')) {
-            element.style.visibility = 'hidden'; // Hide initially
-            splitTextIntoLines(element);
-            element.classList.add('lines-split-done');
-        }
-
-        element.style.visibility = 'visible'; // Unhide after split
-
-        const lines = element.querySelectorAll('.line-reveal-wrapper');
-
-        if (lines.length > 0) {
-            // Animate lines (GSAP SplitText style with yPercent)
-            const innerSpans = element.querySelectorAll('.line-reveal-inner');
-
-            // Animate from below (gsap.from animates FROM these values TO natural state)
-            gsap.from(innerSpans, {
-                duration: 0.6,
-                yPercent: 100,
-                opacity: 0,
-                stagger: 0.1,
-                ease: "expo.out",
-                scrollTrigger: {
-                    trigger: element,
-                    start: "top 85%",
-                    toggleActions: "play none none none"
-                }
-            });
-        }
+                // Animate from below (gsap.from animates FROM these values TO natural state)
+                gsap.from(innerSpans, {
+                    duration: 0.6,
+                    yPercent: 100,
+                    opacity: 0,
+                    stagger: 0.1,
+                    ease: "expo.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            }
+        });
+        
+        // Refrescamos ScrollTrigger para asegurar que las posiciones sean correctas después de cargar fuentes
+        ScrollTrigger.refresh();
     });
 }
 
@@ -1420,6 +1507,7 @@ document.addEventListener('click', async (e) => {
         const transition = document.startViewTransition(() => {
             updateDOM(newDoc, url);
         });
+
         await transition.finished;
 
     } catch (err) {
@@ -1432,7 +1520,14 @@ function updateDOM(newDoc, url) {
     document.body.innerHTML = newDoc.body.innerHTML;
     document.title = newDoc.title;
     history.pushState({}, '', url);
-    window.scrollTo(0, 0);
+    
+    // FIX: Scroll agresivo e instantáneo al top.
+    // Usamos 'instant' para que no haya animación de subida.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    
+    // Fallback por si acaso
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 
     // Asegurar que el DOM esté listo antes de inicializar
     requestAnimationFrame(() => {
