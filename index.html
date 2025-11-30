@@ -310,7 +310,17 @@
             class="w-auto h-auto max-w-full max-h-full object-contain"></video>
     </div>
     <!-- Section Services -->
-    <section class="w-dvw relative px-4 sm:px-6 md:px-8 xl:px-[4dvw] pt-16 sm:pt-24 xl:pt-42 pb-8">
+         <!--! Services -->
+    <section class="w-dvw bg-white flex flex-col xl:flex-row px-6 sm:px-8 pt-2 xl:pt-16 z-30">
+        <div class="reveal-group w-full mt-10">
+            <h1 class="text-center block-reveal font-black text-4xl sm:text-4xl xl:text-5xl">Hacen parte del grupo Immoral</h1>
+            <p
+                class="text-center reveal-lines w-full xl:w-12/10 mt-6 xl:mt-2 font-light text-[16px] sm:text-[18px] xl:text-[22px]">
+                Verticales especializadas en crecimiento digital.
+            </p>
+        </div>
+    </section>
+    <section class="w-dvw relative px-4 sm:px-6 md:px-8 xl:px-[4dvw] pt-16 sm:pt-24 xl:pt-42 pb-8 z-50">
         <a href="https://imfashion.es" target="_blank">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 <div
@@ -342,33 +352,33 @@
         </div>
     </section>
     <!-- Section About Us -->
-    <section class="w-full  flex items-center justify-center bg-white relative z-10 overflow-hidden">
+    <section class="w-full  flex items-center justify-center bg-white relative z-10 overflow-hidden mt-0 xl:-mt-52">
         <!-- Contenedor con Aspect Ratio 16:9 -->
-        <div class="w-full aspect-video relative flex flex-col xl:flex-row max-w-[1920px] mx-auto">
+        <div class="w-full h-full lg:aspect-video relative flex flex-col xl:flex-row max-w-[1920px] mx-auto">
 
             <!-- Columna izquierda: Textos -->
             <div
-                class="w-full h-1/2 xl:h-full xl:w-7/12 relative z-20 flex flex-col justify-center px-6 sm:px-12 xl:pl-32 py-8 xl:py-0">
+                class="w-full  bg-white xl:h-full xl:w-7/12 relative z-20 flex flex-col justify-center px-6 sm:px-12 xl:pl-32 py-8 xl:py-0">
                 <div class="reveal-group max-w-3xl flex flex-col gap-0">
-                    <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl">No somos una
+                    <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl mt-12 xl:mt-64">No somos una
                         agencia.</h1>
 
                     <h1
-                        class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] mt-3 mb-4 xl:mb-8">
+                        class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] xl:mt-3 mb-4 xl:mb-8">
                         Somos tu equipo de crecimiento.
                     </h1>
 
                     <p
-                        class="reveal-lines w-full mt-4 xl:mt-6 font-light text-sm sm:text-base xl:text-lg leading-relaxed text-gray-800">
+                        class="reveal-lines w-full mt-8 xl:mt-6 font-light text-[18px] sm:text-[18px] xl:text-lg leading-relaxed text-gray-800">
                         En Immoral no seguimos fórmulas genéricas ni ejecutamos sin pensar.
                         Nos metemos en tu negocio. Entendemos tu mercado. Detectamos lo que otros no ven.</p>
 
-                        <p class="reveal-lines w-full mt-4 xl:mt-6 font-light text-sm sm:text-base xl:text-lg leading-relaxed text-gray-800">
+                        <p class="reveal-lines w-full mt-8 xl:mt-6 font-light text-[18px] sm:text-[18px] xl:text-lg leading-relaxed text-gray-800">
                             Y desde ahí, diseñamos sistemas que van más allá del marketing:
                         <b class="font-bold text-[#4889eb]">optimizamos procesos, integramos automatizaciones, aplicamos
                             IA donde tiene sentido y hacemos que todo funcione mejor.</b></p>
 
-                        <p class="reveal-lines w-full mt-4 xl:mt-6 font-light text-sm sm:text-base xl:text-lg leading-relaxed text-gray-800">
+                        <p class="reveal-lines w-full mt-8 xl:mt-6 font-light text-[18px] sm:text-[18px] xl:text-lg leading-relaxed text-gray-800">
                         Combinamos branding y performance para que dejes de depender solo de anuncios y empieces a
                         construir una marca con resultados reales y sostenibles.</p>
                 </div>
@@ -378,11 +388,11 @@
             <div class="w-full h-1/2 xl:h-full xl:w-5/12 relative flex items-end justify-center">
                 <!-- Montaña (Base) -->
                 <img src="/imgs/montana.png" alt="montana de Immoral"
-                    class="absolute bottom-0 right-0 w-[400%] max-w-[1000px] object-cover object-center z-0">
+                    class="absolute bottom-0 right-0 w-[100%] xl:w-[400%] xl:max-w-[1000px] object-cover object-center z-0 xl:z-30">
 
                 <!-- Nubes (Superpuestas por encima) -->
                 <img src="/imgs/montana-nubes.png" alt="nubes"
-                    class="absolute bottom-[-40%] right-[-20%] w-[1848px] max-w-none object-contain z-10 animate-cloud opacity-100 mix-blend-normal pointer-events-none">
+                    class="absolute bottom-[-40%] right-[-20%] w-[1848px] max-w-none object-contain z-0 xl:z-40 animate-cloud opacity-100 mix-blend-normal pointer-events-none">
             </div>
         </div>
     </section>
@@ -391,22 +401,28 @@
     <section class="w-dvw bg-white flex flex-col xl:flex-row px-6 sm:px-8 pt-16 z-30">
         <div class="reveal-group w-full xl:w-1/2 mt-10">
 
-            <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl ml-0 xl:ml-20">Crecimiento sin
+            <h1 class="block-reveal font-black text-2xl sm:text-4xl xl:text-5xl ml-0 xl:ml-20">Crecimiento sin
                 fricción.<br></h1>
             <h1
                 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] ml-0 xl:ml-20 mb-6 xl:mb-10">
                 Hecho para ti.</h1>
             <p
-                class="reveal-lines w-full xl:w-12/10 mt-6 xl:mt-15 font-light text-[16px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
+                class="hidden xl:block reveal-lines w-full xl:w-12/10 mt-6 xl:mt-15 font-light text-[18px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
                 Cada negocio necesita algo distinto. Por eso, diseñamos
             </p>
             <p
-                class="reveal-lines w-full xl:w-12/10 font-light text-[16px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
+                class="hidden xl:block reveal-lines w-full xl:w-12/10 font-light text-[18px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
                 soluciones claras para marcas que quieren crecer, vender
             </p>
             <p
-                class="reveal-lines w-full xl:w-12/10 font-light text-[16px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
+                class="hidden xl:block reveal-lines w-full xl:w-12/10 font-light text-[18px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
                 más o ser más eficientes.
+            </p>
+            <p
+                class="xl:hidden reveal-lines w-full xl:w-12/10 mt-6 xl:mt-15 font-light text-[18px] sm:text-[18px] xl:text-[22px] ml-0 xl:ml-20">
+                Cada negocio necesita algo distinto. Por eso, diseñamos
+            soluciones claras para marcas que quieren crecer, vender
+            más o ser más eficientes.
             </p>
         </div>
         <div class="w-full xl:w-1/2 mt-8 xl:mt-10 flex flex-col items-start">
@@ -425,43 +441,42 @@
 
     <!--! Why Us -->
     <section
-        class="reveal-group w-dvw relative bg-white flex flex-col items-center mt-12 sm:mt-24 xl:mt-52 mb-16 sm:mb-24 xl:mb-32 px-6">
-        <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-center">No lo hacemos como los
-            demás.<br></h1>
-        <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-blue-500 mb-6 xl:mb-10 text-center">Y
-            por esto
-            funciona.</h1>
+        class="reveal-group w-dvw relative bg-white flex flex-col items-center mt-32 sm:mt-32 xl:mt-52 mb-16 sm:mb-24 xl:mb-32 px-6">
+        <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-left xl:text-center">No lo hacemos como los
+            demás.</h1>
+        <h1 class="w-full block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-blue-500 mb-6 xl:mb-10 text-left xl:text-center">
+            Y por esto funciona.</h1>
         <img src="/imgs/line-box.png" alt="linea que conecta concepto"
             class="hidden xl:block w-11/12 sm:w-9/12 xl:w-auto">
         <div class="max-w-10/12 flex flex-wrap justify-center items-start gap-4 sm:gap-6 xl:gap-8 h-auto mt-6">
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
+            <div class="w-full xl:w-56 xl:max-w-56 xl:max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
                 <img src="/imgs/ico-home-box-1.png" alt="icono">
-                <h2 class="reveal-lines font-light text-sm pt-4 text-center">No seguimos moda.</h2>
-                <h2 class="reveal-lines font-light text-sm text-[#4889eb] text-center">Aplicamos criterio.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm pt-4 text-center">No seguimos moda.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm text-[#4889eb] text-center">Aplicamos criterio.</h2>
             </div>
 
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-[28px]">
+            <div class="w-full xl:w-56 xl:max-w-56 xl:max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-[28px]">
                 <img src="/imgs/ico-home-box-2.png" alt="icono">
-                <h2 class="reveal-lines font-light text-sm pt-4 text-center">Sin métricas vacias.</h2>
-                <h2 class="reveal-lines font-light text-sm text-[#4889eb] text-center">Hablamos de negocio.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm pt-4 text-center">Sin métricas vacias.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm text-[#4889eb] text-center">Hablamos de negocio.</h2>
             </div>
 
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
+            <div class="w-full xl:w-56 xl:max-w-56 xl:max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
                 <img src="/imgs/ico-home-box-3.png" alt="icono">
-                <h2 class="reveal-lines font-light text-sm pt-4 text-center">No hacemos lo fácil.</h2>
-                <h2 class="reveal-lines font-light text-sm text-[#4889eb] text-center">Hacemos lo que funciona.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm pt-4 text-center">No hacemos lo fácil.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm text-[#4889eb] text-center">Hacemos lo que funciona.</h2>
             </div>
 
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
+            <div class="w-full xl:w-56 xl:max-w-56 xl:max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
                 <img src="/imgs/ico-home-box-4.png" alt="icono">
-                <h2 class="reveal-lines font-light text-sm pt-4 text-center">No ejecutamos por ejecutar.</h2>
-                <h2 class="reveal-lines font-light text-sm text-[#4889eb] text-center">Diseñamos con intención.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm pt-4 text-center">No ejecutamos por ejecutar.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm text-[#4889eb] text-center">Diseñamos con intención.</h2>
             </div>
 
-            <div class="w-56 max-w-56 max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
+            <div class="w-full xl:w-56 xl:max-w-56 xl:max-h-42 flex flex-col items-center bg-gray-100 rounded-lg px-4 py-6">
                 <img src="/imgs/ico-home-box-5.png" alt="icono">
-                <h2 class="reveal-lines font-light text-sm pt-4 text-center">No solo vendemos más.</h2>
-                <h2 class="reveal-lines font-light text-sm text-[#4889eb] text-center">Hacemos que trabajes mejor.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm pt-4 text-center">No solo vendemos más.</h2>
+                <h2 class="reveal-lines font-light text-xl xl:text-sm text-[#4889eb] text-center">Hacemos que trabajes mejor.</h2>
             </div>
         </div>
         <h3 class="font-light text-xl text-black text-center mt-16">La diferencia está en cómo pensamos y
@@ -470,8 +485,8 @@
     <!-- How We Do -->
     <section class="w-dvw xl:h-dvh relative bg-black flex flex-col xl:flex-row">
         <div
-            class="w-full xl:w-1/3 h-auto xl:h-full relative flex flex-col items-center justify-center px-6 sm:px-8 py-12 xl:py-0">
-            <h1 class="font-black text-3xl sm:text-4xl xl:text-5xl text-left text-white">Nos integramos. <br>Diseñamos.
+            class="w-full xl:w-1/3 h-auto xl:h-full relative flex flex-col items-center justify-center px-12 sm:px-12 py-12 xl:py-0">
+            <h1 class="w-full font-black text-3xl sm:text-4xl xl:text-5xl text-left text-white">Nos integramos. <br>Diseñamos.
                 <br>Ejecutamos. <br>Escalamos.
             </h1>
         </div>
@@ -525,7 +540,7 @@
     <section class="w-full bg-white flex flex-col items-center justify-center py-24">
         <div class="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 px-6">
             <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
-                <h1 class="block-reveal font-sans font-black text-3xl sm:text-4xl xl:text-5xl mb-6">Resultados</h1>
+                <h1 class="block-reveal font-sans font-black text-5xl sm:text-4xl xl:text-5xl mb-6">Resultados</h1>
                 <a href="#"
                     class="px-6 py-3 rounded-lg text-lg font-light border-2 bg-[#000000] text-[#FFFFFF] border-[#000000] transition-colors duration-200 cursor-pointer hover:bg-white hover:text-blue-500 hover:border-blue-500 pointer-events-auto z-30">VER
                     CASOS DE ÉXITO</a>
@@ -536,22 +551,20 @@
                         <!-- KPI 1 -->
                         <div class="text-center">
                             <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">15+</h2>
-                            <p class="reveal-lines font-light text-sm mt-2 text-gray-700">+15 años
-                                diseñando<br>estrategias reales
+                            <p class="reveal-lines font-light text-xl xl:text-sm mt-2 text-gray-700">años
+                                diseñando<br> estrategias reales
                             </p>
                         </div>
                         <!-- KPI 2 -->
                         <div class="text-center">
                             <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">28+</h2>
-                            <p class="reveal-lines font-light text-sm mt-2 text-gray-700">+28 marcas que hoy<br>crecen y
-                                trabajan
-                                mejor<br>con nosotros</p>
+                            <p class="reveal-lines font-light text-xl xl:text-sm mt-2 text-gray-700">marcas que hoy<br> crecen y
+                                trabajan mejor<br>con nosotros</p>
                         </div>
                         <!-- KPI 3 -->
                         <div class="text-center">
                             <h2 class="text-[#4889eb] font-black text-5xl sm:text-6xl">60M+</h2>
-                            <p class="reveal-lines font-light text-sm mt-2 text-gray-700">+60 millones<br>invertidos con
-                                retorno</p>
+                            <p class="reveal-lines font-light text-xl xl:text-sm mt-2 text-gray-700">invertidos con retorno</p>
                         </div>
                     </div>
                 </div>
@@ -560,14 +573,14 @@
     </section>
     <!--! Testimonials -->
     <!-- Simple Testimonials (nuevo diseño simplificado) -->
-    <section class="w-full bg-white py-16 sm:py-20 xl:py-24">
+    <section class="w-full bg-white py-10 sm:py-20 xl:py-24">
         <div class="max-w-[1600px] mx-auto px-8">
             <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
                 <div>
-                    <h2 class="font-black text-3xl xl:text-5xl">
+                    <h2 class="font-black text-2xl xl:text-5xl xl:mt-16">
                         <a class="block-reveal">Lo que más valoran no </a><span class="hidden xl:inline"><br></span>
                         <a class="block-reveal">es solo lo que hacemos, </a><span class="hidden xl:inline"><br></span>
-                        <a class="block-reveal"><span class="text-[#4889eb]">es cómo lo hacemos</span></a>
+                        <a class="block-reveal"><span class="text-[#4889eb] text-3xl xl:text-5xl">es cómo lo hacemos</span></a>
                     </h2>
                 </div>
 
@@ -666,18 +679,18 @@
         <iframe src="https://my.spline.design/glassmorphlandingpage-ZyQlmkgnMPSbE8yGqSQ0xNEY/" frameborder="0"
             width="100%" height="100%" class="absolute inset-0 z-10 pointer-events-auto"></iframe>
         <div class="reveal-group relative z-20 flex flex-col items-center pointer-events-none">
-            <h1 class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-center pointer-events-none">El
+            <h1 class="block-reveal font-black text-2xl sm:text-4xl xl:text-5xl text-center pointer-events-none">El
                 crecimiento real
                 empieza<br></h1>
             <h1
-                class="block-reveal font-black text-3xl sm:text-4xl xl:text-5xl text-[#4889eb] mb-6 xl:mb-10 text-center pointer-events-none">
+                class="block-reveal font-black text-4xl sm:text-4xl xl:text-5xl text-[#4889eb] mb-0 xl:mb-10 text-center pointer-events-none">
                 con una buena conversación.</h1>
 
             <h3
-                class="reveal-lines max-w-3xl font-light text-base sm:text-lg xl:text-xl text-black text-center pointer-events-none">
+                class="reveal-lines w-full px-5 py-10 max-w-3xl font-light text-[18px] sm:text-lg xl:text-xl text-black text-center pointer-events-none">
                 No necesitas más ruidos. Necesitas una estretegia que funcione, procesos que fluyan y un equipo que
                 piense como tú</h3>
-            <a href="#"
+            <a href="contacto.html"
                 class="px-6 py-3 rounded-lg text-base sm:text-lg font-light ml-0 xl:ml-3 mt-4 sm:mt-5 border-2 bg-[#000000] text-[#FFFFFF] border-[#000000] transition-colors duration-200 cursor-pointer hover:bg-white hover:text-blue-500 hover:border-blue-500 pointer-events-auto z-30">SOLICITA
                 UNA CONSULTORÍA</a>
         </div>

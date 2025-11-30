@@ -282,15 +282,15 @@
     </div>
 </div>
        <!-- Hero Content -->
-    <main class="relative z-10 w-full aspect-video pt-64 pl-16">
-        <div class="reveal-group max-w-7xl my-auto px-2 w-full text-left text-5xl md:text-8xl font-black text-black leading-tight">
+    <main class="relative z-10 w-full aspect-video pt-32 pl-0 pb-16 xl:pb-0 xl:pt-64 xl:pl-16">
+        <div class="reveal-group max-w-7xl my-auto px-2 w-full text-center xl:text-left text-4xl md:text-8xl font-black text-black leading-tight">
             <h1 class="block-reveal tracking-tight">De hacer marketing...</h1>
             <h1 class="block-reveal tracking-tight">a repensarlo por</h1>
             <h1 class="block-reveal tracking-tight">completo</h1>
 
-            <div class="text-lg md:text-3xl text-gray-800 font-light max-w-5xl leading-relaxed mt-12">
+            <div class="text-xl md:text-3xl text-gray-800 font-light max-w-5xl leading-relaxed mt-12 px-12 xl: px-0">
                 <p class="reveal-lines">Immoral no nació con un business plan de 80 páginas.</p>
-                <p class="reveal-lines text-blue-500">Nació de una incomodidad.</p>
+                <p class="reveal-lines text-white xl:text-blue-500">Nació de una incomodidad.</p>
             </div>
         </div>
     </main>
@@ -300,27 +300,30 @@
         <!-- Imagen de Fondo -->
         <!-- 'object-cover' cubre todo el espacio y 'object-right' asegura que la persona (a la derecha) siempre se vea -->
         <div class="absolute inset-0 z-0">
-            <img src="imgs/nt-bg-2.webp" alt="Marco Fundador" class="w-full h-full object-cover object-right md:object-[80%_center]">
+            <img src="imgs/nt-bg-2.webp" alt="Marco Fundador" class="w-full h-full object-cover object-[80%_center]">
         </div>
 
         <!-- Contenedor Principal -->
-        <div class="relative z-10 max-w-full mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 items-center h-full py-20 pl-20">
+        <div class="relative z-10 max-w-full mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 items-center h-full py-0 xl:py-20 pl-2 xl:pl-20">
             
             <!-- Columna Izquierda: Caja de Texto -->
             <div class="w-full max-w-xl relative">
 
                 <!-- Tarjeta Bicolor -->
-                <div class="rounded-lg overflow-hidden shadow-2xl relative z-10">
+                <div class="rounded-lg overflow-hidden shadow-2xl relative z-10 mt-64">
                     
                     <!-- Parte Azul -->
-                    <div class="bg-[#3B82F6] py-10 pl-8 text-white">
-                        <p class="reveal-lines text-lg md:text-xl font-light leading-relaxed opacity-90">
+                    <div class="bg-[#3B82F6] py-10 pl-0 xl:pl-8 text-white">
+                        <p class="hidden xl:block reveal-lines text-lg md:text-xl font-light leading-relaxed opacity-90">
                             Marco, nuestro fundador, venía de trabajar con
                         </p>
-                        <p class="reveal-lines text-lg md:text-xl font-light leading-relaxed mb-6 opacity-90">
+                        <p class="hidden xl:block reveal-lines text-lg md:text-xl font-light leading-relaxed mb-6 opacity-90">
                             agencias. Muchas. Y en todas encontró lo mismo:
                         </p>
-                        <ul class="reveal-group flex flex-col gap-1 text-xl md:text-2xl font-bold leading-tight">
+                        <p class="mb-4 px-6 xl:hidden reveal-lines text-lg md:text-xl font-light leading-relaxed opacity-90">
+                            Marco, nuestro fundador, venía de trabajar con agencias. Muchas. Y en todas encontró lo mismo:
+                        </p>
+                        <ul class="px-6 xl:px-0 reveal-group flex flex-col gap-1 text-lg md:text-2xl font-bold leading-tight">
                             <li class="block-reveal">Promesas vacías.</li>
                             <li class="block-reveal">Tácticas sin estrategia.</li>
                             <li class="block-reveal">Transparencia solo cuando convenía.</li>
@@ -332,7 +335,7 @@
                         <p class="reveal-lines text-lg md:text-xl font-light opacity-90">
                             Y un pensamiento que se repetía:
                         </p>
-                        <p class="reveal-lines text-xl md:text-base font-bold italic leading-snug">
+                        <p class="reveal-lines text-lg md:text-base font-bold italic leading-snug">
                             “Si esto es lo normal, yo no quiero hacer marketing.”
                         </p>
                     </div>
@@ -368,12 +371,12 @@
                 
                 <!-- Columna Izquierda: Imagen Circular (Superpuesta) -->
                 <!-- md:-mt-48 sube la imagen para que pise la sección negra anterior -->
-                <div class="relative md:-mt-32 md:-ml-12 z-30 flex justify-center md:justify-start">
+                <div class="relative -mt-32 md:-ml-12 z-30 flex justify-center md:justify-start">
                     <img src="imgs/circulo-equipo.webp" alt="Equipo Immoral" class="w-full max-w-[750px] drop-shadow-2xl hover:scale-105 transition-transform duration-500">
                 </div>
 
                 <!-- Columna Derecha: Texto -->
-                <div class="reveal-group pt-10 md:pt-20 md:pl-12 pr-6">
+                <div class="reveal-group pt-10 md:pt-20 pl-12 pr-6">
                     <h2 class="block-reveal text-3xl md:text-5xl font-black text-black mb-8 tracking-tight">
                         Así nació la idea:
                     </h2>
@@ -396,14 +399,18 @@
             <!-- Recuadro Azul (Centrado abajo) -->
             <div class="md:-mt-32 max-w-3xl mx-auto px-6 relative z-20">
                 <div class="bg-[#3B82F6] text-white p-8 md:p-12 rounded-2xl shadow-xl text-center relative overflow-hidden">
-                    <p class="reveal-lines text-lg md:text-xl font-light leading-relaxed">
+                    <p class="hidden xl:block reveal-lines text-lg md:text-xl font-light leading-relaxed">
                         Al principio nos llamamos ADMK Team. Lo dimos todo.
                     </p>
-                    <p class="reveal-lines text-lg md:text-xl font-light leading-relaxed mb-8">
+                    <p class="hidden xl:block reveal-lines text-lg md:text-xl font-light leading-relaxed mb-8">
                         Las marcas llegaron. Se quedaron. Y nos recomendaron.
                     </p>
+
+                    <p class="xl:hidden reveal-lines text-lg md:text-xl font-light leading-relaxed">
+                        Al principio nos llamamos ADMK Team. Lo dimos todo. Las marcas llegaron. Se quedaron. Y nos recomendaron.
+                    </p>
                     
-                    <div class="reveal-group space-y-2pt-6">
+                    <div class="reveal-group space-y-2 pt-6">
                         <p class="reveal-lines text-xl md:text-xl font-light">
                             Pero había algo que no cuadraba:
                         </p>
@@ -421,11 +428,11 @@
         <!-- Sección Immoral Statement (Dark) -->
     <section class="relative w-full bg-black py-24 overflow-hidden">
         
-        <div class="max-w-full mx-auto px-16 w-full relative z-10">
+        <div class="max-w-full mx-auto px-6 xl:px-16 w-full relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
                 
                 <!-- Columna 1: Texto (Izquierda) -->
-                <div class="reveal-group text-white w-[700px]">
+                <div class="reveal-group text-white xl:w-[700px]">
                     <h2 class="block-reveal text-3xl md:text-4xl font-black leading-tight tracking-tight">
                         Immoral: un nombre que incomoda.
                     </h2>
@@ -449,7 +456,7 @@
                 </div>
 
                 <!-- Columna 2: Logo Central (Círculo Blanco) -->
-                <div class="flex justify-center">
+                <div class="hidden xl:flex justify-center">
                     <div class="w-40 h-40 flex items-center justify-center">
                         <img src="imgs/loguito.svg" alt="Icono Immoral" class="w-40 h-40">
                     </div>
@@ -470,22 +477,27 @@
         </div>
     </section>
         <!-- Sección Más que una agencia -->
-    <section class="relative w-full bg-white py-32">
+    <section class="relative w-full bg-white py-24 xl:py-32">
         
         <!-- Contenedor con px-16 como pediste -->
-        <div class="w-full px-16">
+        <div class="w-full px-6 xl:px-16">
             
             <!-- Parte Superior: Grid 2 Columnas -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-24 items-start">
                 
                 <!-- Izquierda: Título y Texto -->
                 <div class="reveal-group max-w-[700px]">
-                    <h2 class="block-reveal text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+                    <h2 class="hidden xl:block block-reveal text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
                         Hoy, Immoral es más que
                     </h2>
-                    <h2 class="block-reveal text-4xl md:text-5xl font-black text-black mb-8 leading-tight tracking-tight">
+                    <h2 class="hidden xl:block block-reveal text-4xl md:text-5xl font-black text-black mb-8 leading-tight tracking-tight">
                         una agencia
                     </h2>
+
+                    <h2 class="mb-8 xl:hidden block-reveal text-4xl md:text-5xl font-black text-black leading-tight tracking-tight">
+                        Hoy, Immoral es más que una agencia
+                    </h2>
+
                     <div class="text-xl text-gray-800 font-light leading-relaxed space-y-6">
                         <p>
                             Somos un equipo que piensa como negocio. Que actúa como parte del tuyo.
@@ -521,7 +533,7 @@
                     <div class="md:col-span-3 bg-gray-50 rounded-2xl p-8 flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-lg transition-shadow duration-300">
                         <img src="/imgs/ico-historia-4.png" class="w-12 h-12 shrink-0" alt="Oportunidades">
                         <div class="font-medium text-gray-900 text-lg leading-snug">
-                            <span class="text-blue-500 font-bold block mb-1">Y donde la mayoría solo ve leads:</span>
+                            <span class="text-blue-500 font-light xl:font-bold block mb-1">Y donde la mayoría solo ve leads:</span>
                             nosotros vemos oportunidades de construir algo más grande: una marca con propósito y con resultados reales.
                         </div>
                     </div>
@@ -530,7 +542,7 @@
             </div>
 
             <!-- Parte Inferior: Recuadro Azul Centrado -->
-            <div class="md:mt-16 max-w-4xl mx-auto px-6 relative z-20">
+            <div class="md:mt-16 max-w-4xl mx-auto px-0 xl:px-16 relative z-20">
                 <div class="reveal-group bg-[#3B82F6] text-white p-12 md:p-16 rounded-lg text-center shadow-2xl relative overflow-hidden">
                     <!-- Decoración sutil de fondo -->
                     <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -564,7 +576,7 @@
                 <h1 class="text-3xl sm:text-2xl lg:text-4xl font-black text-black">
                     Gracias por considerar
                 </h1>
-                <h1 class="text-3xl sm:text-2xl lg:text-4xl font-black text-blue-500">
+                <h1 class="text-3xl sm:text-2xl lg:text-4xl font-black mb-8 text-blue-500">
                     A Immoral
                 </h1>
 

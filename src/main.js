@@ -917,6 +917,7 @@ function initModals() {
 let physicsRunner = null;
 let physicsRender = null;
 let physicsEngine = null;
+
 let physicsResizeHandler = null; // Variable para manejar el evento resize
 
 function initHeroPhysics() {
@@ -958,9 +959,14 @@ function initHeroPhysics() {
     container.innerHTML = ''; // Asegurar que el contenedor esté vacío
 
     const WALL_THICKNESS = 60;
-    const TEAM_CIRCLE_SIZE_MIN = 90;
-    const TEAM_CIRCLE_SIZE_MAX = 130;
-    const DOT_SIZE = 25;
+    // Detectar si es mobile
+    const isMobile = window.innerWidth < 768;
+    
+    // Tamaños más pequeños en mobile
+    const TEAM_CIRCLE_SIZE_MIN = isMobile ? 50 : 90;
+    const TEAM_CIRCLE_SIZE_MAX = isMobile ? 70 : 130;
+    const DOT_SIZE = isMobile ? 15 : 25;
+    
     const TEAM_IMAGES = ['/imgs/port1.png', '/imgs/port2.png', '/imgs/port3.png', '/imgs/port4.png'];
     const DOT_COLORS = ['#3B82F6', '#67E8F9'];
 
@@ -1075,32 +1081,40 @@ function initHeroPhysics() {
         mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
         mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
 
-        const mouseConstraint = MouseConstraint.create(physicsEngine, {
-            mouse: mouse,
-            constraint: { stiffness: 0.2, render: { visible: false } }
-        });
-
-        Composite.add(world, mouseConstraint);
-        physicsRender.mouse = mouse;
-
-        Events.on(physicsEngine, 'beforeUpdate', function () {
-            const mousePosition = mouse.position;
-            const repulsionRange = 150;
-            const repulsionForce = 0.005;
-            Composite.allBodies(world).forEach(body => {
-                if (body.isStatic) return;
-                const dx = body.position.x - mousePosition.x;
-                const dy = body.position.y - mousePosition.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < repulsionRange) {
-                    const forceMagnitude = (1 - distance / repulsionRange) * repulsionForce;
-                    Matter.Body.applyForce(body, body.position, {
-                        x: (dx / distance) * forceMagnitude,
-                        y: (dy / distance) * forceMagnitude
-                    });
-                }
+        // SOLO crear MouseConstraint en desktop
+        if (!isMobile) {
+            const mouseConstraint = MouseConstraint.create(physicsEngine, {
+                mouse: mouse,
+                constraint: { stiffness: 0.2, render: { visible: false } }
             });
-        });
+            Composite.add(world, mouseConstraint);
+            physicsRender.mouse = mouse;
+
+            // Evento de repulsión SOLO en desktop
+            Events.on(physicsEngine, 'beforeUpdate', function () {
+                const mousePosition = mouse.position;
+                const repulsionRange = 150;
+                const repulsionForce = 0.005;
+                Composite.allBodies(world).forEach(body => {
+                    if (body.isStatic) return;
+                    const dx = body.position.x - mousePosition.x;
+                    const dy = body.position.y - mousePosition.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < repulsionRange) {
+                        const forceMagnitude = (1 - distance / repulsionRange) * repulsionForce;
+                        Matter.Body.applyForce(body, body.position, {
+                            x: (dx / distance) * forceMagnitude,
+                            y: (dy / distance) * forceMagnitude
+                        });
+                    }
+                });
+            });
+        } else {
+            // En mobile, desactivar pointer events del canvas para permitir scroll
+            if (physicsRender.canvas) {
+                physicsRender.canvas.style.pointerEvents = 'none';
+            }
+        }
 
         Render.run(physicsRender);
         physicsRunner = Runner.create();
