@@ -232,7 +232,7 @@ function initHowWeDo() {
                 if (sub) sub.classList.remove('hidden');
 
                 const processId = newItem.getAttribute('data-proceso');
-                processImage.src = `/imgs/img-como-hacemos-${processId}.png`;
+                processImage.src = `/imgs/img-como-hacemos-${processId}.webp`;
             });
         });
     }
